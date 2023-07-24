@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import imageio
 
-L = 20
+L = 50
 
-time, x, y, s = np.loadtxt('trajetoria_b.dat', unpack = True)
+time, x, y, s = np.loadtxt('trajetoria_c.dat', unpack = True)
 
 x += (s[0] % L) + 0.5;
 y += (L - s[0]//L) - 0.5;
@@ -45,7 +45,7 @@ def create_frame(t):
 	plt.vlines(L, 0, L, color = 'black')
 	plt.xlim([-LR, LR])
 	plt.ylim([-LR, LR])
-	plt.title(f'step {t}', fontsize = 12)
+	plt.axis('off')
 	plt.savefig(f'./img/img_{t}.png', transparent = False, facecolor = 'white')
 	plt.close()
 

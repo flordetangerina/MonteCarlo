@@ -4,11 +4,11 @@
 #include <math.h>
 #include <time.h>
 
-#define L 20 // lado da rede
+#define L 50 // lado da rede
 #define N (L*L) // numero de sitios
 #define S 189 // sitio inicial
 #define T 1000 // numero maximo de passos
-#define W 1000000 // numero de amostras
+#define W 10000 // numero de amostras
 
 void inicio_sitios(bool *sitios, int s);
 void matriz_vizinhanca(int **vizinhanca);
