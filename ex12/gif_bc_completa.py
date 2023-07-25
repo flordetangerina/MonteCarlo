@@ -2,14 +2,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import imageio
 
-L = 50
+L = 20
 
-time, x, y, s = np.loadtxt('trajetoria_c.dat', unpack = True)
+time, x, y, s = np.loadtxt('trajetoria_b.dat', unpack = True)
 
 x += (s[0] % L) + 0.5;
 y += (L - s[0]//L) - 0.5;
 
-LR = np.stack((np.absolute(x), np.absolute(y))).max()
+LMIN = np.stack((x, y)).min()
+LMAX = np.stack((x, y)).max()
+
+if(LMIN > 0):
+	LMIN = 0
+if(LMAX < L):
+	LMAX = L
 
 xs = (s % L) + 0.5; 
 ys = (L - s//L) - 0.5;
@@ -43,8 +49,8 @@ def create_frame(t):
 	plt.hlines(L, 0, L, color = 'black')
 	plt.vlines(0, 0, L, color = 'black')
 	plt.vlines(L, 0, L, color = 'black')
-	plt.xlim([-LR, LR])
-	plt.ylim([-LR, LR])
+	plt.xlim([LMIN, LMAX])
+	plt.ylim([LMIN, LMAX])
 	plt.axis('off')
 	plt.savefig(f'./img/img_{t}.png', transparent = False, facecolor = 'white')
 	plt.close()
