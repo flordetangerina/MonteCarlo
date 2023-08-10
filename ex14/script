@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gcc ex14.c -lm -o ex14.exe 
+
+for sample in $(seq 1 1000)
+do
+	./ex14.exe
+done 
