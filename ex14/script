@@ -1,8 +1,16 @@
 #!/bin/bash
 
+L="5"
+
+mkdir -p ./samples/L$L
+rm -f ./samples/L$L/*
+
 gcc ex14.c -lm -o ex14.exe 
 
 for sample in $(seq 1 1000)
 do
 	./ex14.exe
 done 
+
+ls ./samples/L$L > L$L.lis
+python3 tratamento.py $L

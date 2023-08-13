@@ -20,7 +20,7 @@ int main(){
 	// para nao gerar amostras com mesma seed
 	bool ok = 0;
 	while(!ok){
-		sprintf(filename, "./samples/results_L%d_%d.dat", L, seed);
+		sprintf(filename, "./samples/L%d/results_%d.dat", L, seed);
 		file = fopen(filename, "r");
 		if(file != NULL){
 			seed++;
