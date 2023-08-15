@@ -4,9 +4,11 @@ import numpy as np
 L = int(sys.argv[1])
 lista = np.loadtxt(f"L{L}.lis", dtype = 'str')
 
+sizes = {5: 0.25, 10: 0.2, 50: 0.01, 100: 0.005}
+
 lim = 0.5
-bins = 200
-size = 2*lim/bins
+size = sizes[L]
+bins = round(2*lim/size)
 
 histm = np.zeros(bins)
 histu = np.zeros(bins)
@@ -26,7 +28,7 @@ histu /= (len(lista)*size)
 with open(f"histogramaL{L}.dat", "w") as f:
 	f.write("#bin m u\n")
 	for i in range(len(histm)):
-		loc = i*size - lim
+		loc = i*size - lim + size/2
 		f.write(f"{loc:.3f} {histm[i]:.3f} {histu[i]:.3f}\n")
 
 print(np.sum(histm))
