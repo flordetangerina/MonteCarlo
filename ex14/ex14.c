@@ -35,7 +35,7 @@ int main(){
 	fprintf(file, "VTH 08/2023\n\n");
 	fprintf(file, "REDE DE LADO %d SEED %d\n\n", L, seed);
 
-	int n, a; // variaveis auxiliares
+	int n; // variavel auxiliar
 	float u = 0, m = 0; // variaveis medidas
 
 	int *sitios = (int*)malloc(N * sizeof(int));
