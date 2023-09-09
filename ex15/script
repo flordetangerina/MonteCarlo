@@ -1,0 +1,11 @@
+#!/bin/bash
+
+I="1"
+T="5"
+L="50"
+
+gcc ex15.c -lm -o ex15.exe 
+
+./ex15.exe 
+
+python3 tratamento.py $L $I $T
