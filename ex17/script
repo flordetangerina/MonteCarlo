@@ -1,0 +1,9 @@
+#!/bin/bash
+
+L="100"
+
+gcc ex17.c -lm -o ex17.exe 
+
+./ex17.exe
+
+python3 tratamento.py $L

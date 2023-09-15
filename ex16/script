@@ -1,0 +1,18 @@
+#!/bin/bash
+
+L="100"
+T="2.27"
+
+mkdir -p samples/L$L/T$T
+rm -f samples/L$L/T$T/*
+
+gcc ex16.c -lm -o ex16.exe 
+
+for sample in $(seq 1 100)
+do
+	echo $sample
+	./ex16.exe
+done 
+
+ls ./samples/L$L/T$T > L$L-T$T.lis
+python3 tratamento.py $L $T
